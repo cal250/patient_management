@@ -9,12 +9,14 @@ FormItem,
 FormLabel,
 FormMessage,
 } from "@/components/ui/form"
+import { FormFieldType } from "../forms/PatientForm"
 
 interface CustomeProps{
     control:control<any>,
+    fieldType : FormFieldType
 }
 
-const CustomFormField = ({control}:CustomeProps) => {
+const CustomFormField = ({control, fieldType, name}:CustomeProps) => {
   return (
     <FormField
         control={control}

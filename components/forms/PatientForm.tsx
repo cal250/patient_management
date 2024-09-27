@@ -7,8 +7,13 @@ import { Button } from "@/components/ui/button"
 import {
   Form} from "@/components/ui/form"
 import CustomFormField from "../ui/CustomFormField"
+import { Input } from "../ui/input"
 
- 
+ export enum FormFieldType{
+  INPUT = 'Input'
+
+
+ }
 const formSchema = z.object({
   username: z.string().min(2, {
     message: "Username must be at least 2 characters.",
@@ -40,8 +45,15 @@ const PatientForm =()=> {
         </section>
 
         <CustomFormField
-        
+
+        fieldType={FormFieldType.INPUT}
         control = {form.control}
+        name= 'name'
+        label='Full name'
+        placeholder= "john doe"
+        iconSrc= "assets/icons/user.svg"
+        iconAlt="user"
+
         />
     
       <Button type="submit">Submit</Button>
