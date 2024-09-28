@@ -10,7 +10,13 @@ import CustomFormField from "../ui/CustomFormField"
 import { Input } from "../ui/input"
 
  export enum FormFieldType{
-  INPUT = 'Input'
+  INPUT = 'Input',
+  TEXTAREA = 'textarea',
+  PHONE_INPUT = 'PHONEinput',
+  CHECKBOX = 'checkbox',
+  DATE_PICKER ='datePicker',
+  SELECT =  'select',
+  SKELETON = 'skeleton',
 
 
  }
