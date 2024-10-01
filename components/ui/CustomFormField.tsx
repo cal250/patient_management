@@ -14,6 +14,9 @@ import { Label } from "./label"; // Ensure Label is correctly imported
 
 import { Control } from "react-hook-form";
 import Image from "next/image";
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css'; // For styling
+
 
 interface CustomeProps {
   control: Control<any>;
@@ -49,7 +52,23 @@ const RenderField = ({ field, props }: { field: any; props: CustomeProps }) => {
           {/* Render Input field here */}
           <Input placeholder={placeholder} {...field} />
         </div>
-      );
+      )
+    case FormFieldType.PHONE_INPUT:
+        return(
+          <FormControl>
+            <PhoneInput
+            defaultCountry="US"
+            placeholder={placeholder}
+            international
+            withCountryCallingCode 
+            value={field.value as E16Number | undefined}
+            onChange={field.onChange}
+            className="input-phone"/>
+          </FormControl>
+        )
+
+    default:
+      break;  
   }
 };
 

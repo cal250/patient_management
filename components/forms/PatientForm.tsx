@@ -8,6 +8,10 @@ import {
   Form} from "@/components/ui/form"
 import CustomFormField from "../ui/CustomFormField"
 import { Input } from "../ui/input"
+import SubmitButton from "../ui/SubmitButton"
+import { useState } from "react"
+import { UserFormValidation } from "@/lib/validation"
+
 
  export enum FormFieldType{
   INPUT = 'Input',
@@ -20,26 +24,26 @@ import { Input } from "../ui/input"
 
 
  }
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-})
+
  
 const PatientForm =()=> {
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof UserFormValidation>>({
+    resolver: zodResolver(UserFormValidation),
     defaultValues: {
-      username: "",
+      name:"",
+      email:"",
+      phone:"",
+
+
     },
   })
  
+  const [isLoading,setisLoading]= useState(false)
   
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+  function onSubmit(values: z.infer<typeof UserFormValidation>) {
+    
+   
   }
   return (
     <Form {...form}>
@@ -73,8 +77,22 @@ iconSrc= "assets/icons/email.svg"
 iconAlt="email"
 
 />
+
+<CustomFormField
+
+fieldType={FormFieldType.PHONE_INPUT}
+control = {form.control}
+name= 'phone'
+label='Phone number'
+placeholder= "+250 788 888 88"
+iconSrc= "assets/icons/email.svg"
+iconAlt="Phone"
+
+/>
     
-      <Button type="submit">Submit</Button>
+    <SubmitButton 
+    isLoading={isLoading}
+    > Get Started </SubmitButton>
     </form>
   </Form>
   )
