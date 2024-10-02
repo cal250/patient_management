@@ -28,9 +28,9 @@ export default function Home() {
 
   ©2024 Carepulse
   </p>
-  <Link href= "/?admin=true className = text-green-500">
+  <Link href= "/?admin=true " className = "text-green-500 ">
+ admin 
   
-   
   </Link>
 </div>
 
