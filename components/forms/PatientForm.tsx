@@ -50,7 +50,7 @@ const PatientForm = () => {
       };
 
       const user = await createUser(userData);
-
+      console.log(user)
       if (user) {
         router.push(`/patient/${user.$id}/register`);
       }
