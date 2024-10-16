@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { Button } from './button';
 
-// Define the Loader component outside of the SubmitButton
+// Define the Loader component
 const Loader = () => (
   <svg
     className="animate-spin"
@@ -39,7 +38,9 @@ const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
     <Button
       type="submit"
       disabled={isLoading}
-      className={className ?? 'shad-primary-btn w-full'}
+      className={`${className ?? 'shad-primary-btn w-full'} ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`} // Add styles for loading state
+      aria-busy={isLoading} // Indicate loading state
+      aria-label={isLoading ? 'Loading...' : undefined} // Provide context for screen readers
     >
       {isLoading ? (
         <div className="flex items-center gap-4">
