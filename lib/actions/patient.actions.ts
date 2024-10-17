@@ -15,7 +15,7 @@ export const createUser = async (user: CreateUserParams) => {
     );
     console.log("new user", newUser);
     console.log("Created user:", user);
-    return JSON.stringify(newUser);
+    return (newUser);
   } catch (error: any) {
     console.log("error creating user", error);
     //check existing user
