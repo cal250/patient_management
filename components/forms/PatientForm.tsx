@@ -12,6 +12,7 @@ import { UserFormValidation } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 import { createUser } from "@/lib/actions/patient.actions";
 
+
 export enum FormFieldType {
   INPUT = "Input",
   TEXTAREA = "textarea",
@@ -52,7 +53,7 @@ const PatientForm = () => {
       const user = await createUser(userData);
       console.log(user)
       if (user) {
-        router.push(`/patient/${user.$id}/register`);
+        router.push(`/patients/${user.$id}/register`);
       }
     } catch (error) {
       console.log(error);

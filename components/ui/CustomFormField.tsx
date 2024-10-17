@@ -3,14 +3,13 @@
 import { Input } from "@/components/ui/input";
 import {
   FormControl,
-  FormDescription,
+  
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { FormFieldType } from "../forms/PatientForm";
-import { Label } from "./label"; // Ensure Label is correctly imported
 
 import { Control } from "react-hook-form";
 import Image from "next/image";
