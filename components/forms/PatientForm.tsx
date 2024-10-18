@@ -101,6 +101,7 @@ const PatientForm = () => {
           iconSrc="assets/icons/email.svg"
           iconAlt="Phone"
         />
+        
 
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
