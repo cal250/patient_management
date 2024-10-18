@@ -13,6 +13,8 @@ import { useRouter } from "next/navigation";
 import { createUser } from "@/lib/actions/patient.actions";
 import { FormFieldType } from "./PatientForm";
 import { RadioGroup } from "../ui/radio-group";
+import { GenderOptions } from "@/constants";
+import { RadioGroupItem } from "@radix-ui/react-radio-group";
 
 
 
@@ -122,8 +124,26 @@ const RegisterForm = ({user}:{user:User}) => {
             label="Gender"
             renderSkeleton={(field) => (
               <FormControl>
-                <RadioGroup>
-                  
+                <RadioGroup className="flex h-11 gap-6 xl:justify-between " 
+                onValueChange={field.onChange}
+                defaultValue={field.value}
+                >
+                  {GenderOptions.map((options)
+                => (
+                  <div key = {options}
+                  className="radio-group">
+                    <RadioGroupItem value=
+                    {options} id={options} />
+
+                    <label htmlFor={options}
+                    className="cursor-point"
+                    >
+                     {options} 
+                    </label>
+
+                  </div>
+                ))}
+
 
                 </RadioGroup>
               </FormControl>
